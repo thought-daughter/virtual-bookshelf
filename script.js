@@ -84,7 +84,7 @@ function createPage(books, pageNum) {
             const actionsDiv = document.createElement('div');
             actionsDiv.className = 'fallback-actions';
 
-            // DITCHED GOOGLE, SWITCHED TO OPEN LIBRARY SEARCH API
+            // RESTORED: Open Library Search API
             const searchBtn = document.createElement('button');
             searchBtn.className = 'upload-btn';
             searchBtn.innerText = 'Find Cover';
@@ -193,9 +193,32 @@ document.getElementById('exportBtn').addEventListener('click', async function() 
         
         await new Promise(resolve => setTimeout(resolve, 500)); 
     }
-    
+
     progressText.innerText = "Done!";
     setTimeout(() => {
         overlay.style.display = 'none'; 
     }, 1500);
+}); 
+
+// --- NEW TUTORIAL MODAL LOGIC ---
+
+const tutorialModal = document.getElementById('tutorialModal');
+const tutorialBtn = document.getElementById('tutorialBtn');
+const closeTutorialBtn = document.getElementById('closeTutorialBtn');
+
+// Open the modal
+tutorialBtn.addEventListener('click', function() {
+    tutorialModal.style.display = 'flex';
+});
+
+// Close the modal when clicking the X
+closeTutorialBtn.addEventListener('click', function() {
+    tutorialModal.style.display = 'none';
+});
+
+// Close the modal when clicking outside the white box
+window.addEventListener('click', function(event) {
+    if (event.target === tutorialModal) {
+        tutorialModal.style.display = 'none';
+    }
 });

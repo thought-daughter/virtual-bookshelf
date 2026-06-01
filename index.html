@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Bookshelf</title>
+    <title>✨ Virtual Bookshelf ✨</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -11,13 +11,15 @@
 <body>
     <div id="progressOverlay" style="display:none;">
         <div class="progress-box">
-            <h2 id="progressText">Preparing download...</h2>
+            <h2 id="progressText">Preparing download... ✨</h2>
         </div>
     </div>
 
     <div class="controls">
-        <h1>My Virtual Bookshelf</h1>
-        <p>Upload your Goodreads CSV export to generate your shelf.</p>
+        <h1>✨ My Virtual Bookshelf ✨</h1>
+        <p>Upload your Goodreads CSV export to generate your shelf 💖</p>
+        
+        <button id="tutorialBtn" class="secondary-btn">How do I get my CSV? 🎀</button>
         
         <div class="toggles">
             <label>
@@ -31,12 +33,29 @@
         </div>
 
         <input type="file" id="csvFileInput" accept=".csv" />
-        <button id="exportBtn" style="display:none;">Export for Aura Frame</button>
+        <button id="exportBtn" style="display:none;">Export for Aura Frame 🖼️</button>
     </div>
 
     <input type="file" id="manualCoverUpload" accept="image/*" style="display:none;" />
 
     <div id="frame-container"></div>
+
+    <div id="tutorialModal" class="modal" style="display:none;">
+        <div class="modal-content tutorial-container">
+            <span class="close-btn" id="closeTutorialBtn">&times;</span>
+            <h2>✨ How to Export Your Goodreads Library ✨</h2>
+            <p>To populate your virtual bookshelf, you need to upload your Goodreads data file. Follow these steps on a browser or computer (the export option is not available in the Goodreads mobile app):</p>
+            
+            <ol class="tutorial-steps">
+                <li><strong>Log In:</strong> Go to <a href="https://www.goodreads.com" target="_blank" rel="noopener">goodreads.com</a> and log in.</li>
+                <li><strong>Navigate to My Books:</strong> Click on <strong>"My Books"</strong> in the top navigation bar.</li>
+                <li><strong>Find the Import/Export Tool:</strong> On the left-hand sidebar, look under "Tools" and click <strong>"Import and Export"</strong>.</li>
+                <li><strong>Generate Your Export:</strong> Click the <strong>"Export Library"</strong> button in the top left. <br><em>Note: If you have a large library, it might take a minute or two.</em></li>
+                <li><strong>Download Your File:</strong> Once a link appears saying <strong>"Your export from (date - time)"</strong>, click it to download your .csv file.</li>
+                <li><strong>Upload Here:</strong> Return to this app, click "Choose File", and select your freshly downloaded file!</li>
+            </ol>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
